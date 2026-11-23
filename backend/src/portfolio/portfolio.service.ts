@@ -13,6 +13,8 @@ export interface ProjectItem {
   stack: string[];
   repoUrl: string;
   liveUrl?: string;
+  previewImage?: string;
+  previewVideo?: string;
   cardTone: 'paper' | 'mist' | 'lilac' | 'stone';
 }
 
@@ -67,6 +69,7 @@ export class PortfolioService {
           ],
           stack: ['Laravel', 'PHP', 'Blade', 'MySQL'],
           repoUrl: 'https://github.com/mahmuda-mahmi/InfoTub',
+          previewImage: '/previews/infotub.svg',
           cardTone: 'paper',
         },
         {
@@ -86,6 +89,7 @@ export class PortfolioService {
           ],
           stack: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS'],
           repoUrl: 'https://github.com/mahmuda-mahmi/tweety',
+          previewImage: '/previews/tweety.svg',
           cardTone: 'mist',
         },
         {
@@ -105,6 +109,7 @@ export class PortfolioService {
           ],
           stack: ['TypeScript', 'HTML5', 'CSS3', 'JavaScript'],
           repoUrl: 'https://github.com/mahmuda-mahmi/realsolution',
+          previewImage: '/previews/realsolution.svg',
           cardTone: 'lilac',
         },
         {
@@ -124,6 +129,7 @@ export class PortfolioService {
           ],
           stack: ['React', 'Node.js', 'Express', 'MongoDB'],
           repoUrl: 'https://github.com/mahmuda-mahmi/coffee-store-client-with-auth',
+          previewImage: '/previews/coffee-store.svg',
           cardTone: 'stone',
         },
       ] satisfies ProjectItem[],

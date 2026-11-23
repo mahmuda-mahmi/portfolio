@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" rx="16" fill="#F9F8F6"/>
+  <rect width="1200" height="44" rx="16" fill="#EBEAE6"/>
+  <rect y="28" width="1200" height="16" fill="#EBEAE6"/>
+  <circle cx="28" cy="22" r="6" fill="#D4D2CC"/>
+  <circle cx="48" cy="22" r="6" fill="#D4D2CC"/>
+  <circle cx="68" cy="22" r="6" fill="#D4D2CC"/>
+  <rect x="420" y="10" width="360" height="24" rx="6" fill="#F9F8F6"/>
+  <text x="600" y="26" text-anchor="middle" fill="#6D6D6D" font-family="monospace" font-size="12">tweety.app // timeline</text>
+  <!-- Left Sidebar -->
+  <rect x="48" y="76" width="220" height="600" rx="12" fill="#FFFFFF" stroke="#E2E1DC"/>
+  <text x="76" y="122" fill="#181818" font-family="monospace" font-weight="700" font-size="22">TWEETY</text>
+  <rect x="72" y="150" width="172" height="38" rx="8" fill="#181818"/>
+  <text x="92" y="174" fill="#F9F8F6" font-family="sans-serif" font-weight="600" font-size="14">Home Timeline</text>
+  <text x="92" y="220" fill="#555" font-family="sans-serif" font-size="14">Explore</text>
+  <text x="92" y="260" fill="#555" font-family="sans-serif" font-size="14">Following</text>
+  <text x="92" y="300" fill="#555" font-family="sans-serif" font-size="14">Profile</text>
+  <!-- Center Feed -->
+  <rect x="292" y="76" width="580" height="156" rx="12" fill="#FFFFFF" stroke="#E2E1DC"/>
+  <circle cx="332" cy="116" r="20" fill="#BFA8F5"/>
+  <text x="368" y="120" fill="#6D6D6D" font-family="sans-serif" font-size="15">What are you building today?</text>
+  <rect x="752" y="176" width="96" height="34" rx="8" fill="#181818"/>
+  <text x="800" y="198" text-anchor="middle" fill="#F9F8F6" font-family="monospace" font-size="12">POST ▶</text>
+
+  <rect x="292" y="252" width="580" height="190" rx="12" fill="#FFFFFF" stroke="#E2E1DC"/>
+  <circle cx="332" cy="296" r="20" fill="#212121"/>
+  <text x="366" y="292" fill="#181818" font-family="sans-serif" font-weight="700" font-size="15">Mahmuda Akter</text>
+  <text x="488" y="292" fill="#8A8A8A" font-family="monospace" font-size="12">@mahmuda-mahmi · 2m</text>
+  <text x="366" y="330" fill="#222" font-family="sans-serif" font-size="15">Shipped follower graph pagination &amp; instant likes</text>
+  <text x="366" y="354" fill="#222" font-family="sans-serif" font-size="15">with Eloquent relationships and Laravel policies.</text>
+  <text x="366" y="408" fill="#6D6D6D" font-family="monospace" font-size="12">♥ 42   ↺ 9   💬 6</text>
+
+  <rect x="292" y="462" width="580" height="214" rx="12" fill="#FFFFFF" stroke="#E2E1DC"/>
+  <circle cx="332" cy="506" r="20" fill="#E8E0FA"/>
+  <text x="366" y="502" fill="#181818" font-family="sans-serif" font-weight="700" font-size="15">Dev Feed</text>
+  <text x="442" y="502" fill="#8A8A8A" font-family="monospace" font-size="12">@builders · 18m</text>
+  <text x="366" y="540" fill="#222" font-family="sans-serif" font-size="15">Clean MVC separation keeps timelines snappy even</text>
+  <text x="366" y="564" fill="#222" font-family="sans-serif" font-size="15">as follower graphs scale up.</text>
+  <rect x="366" y="588" width="470" height="58" rx="8" fill="#F2F1EC"/>
+  <text x="386" y="622" fill="#181818" font-family="monospace" font-size="13">STACK: LARAVEL · PHP · MYSQL · TAILWIND</text>
+  <!-- Right Panel -->
+  <rect x="896" y="76" width="256" height="600" rx="12" fill="#FFFFFF" stroke="#E2E1DC"/>
+  <text x="920" y="118" fill="#181818" font-family="monospace" font-weight="700" font-size="14">TRENDING</text>
+  <text x="920" y="164" fill="#181818" font-family="sans-serif" font-weight="600" font-size="14">#Laravel11</text>
+  <text x="920" y="184" fill="#8A8A8A" font-family="monospace" font-size="11">1.2k posts</text>
+  <text x="920" y="232" fill="#181818" font-family="sans-serif" font-weight="600" font-size="14">#FullStackDev</text>
+  <text x="920" y="252" fill="#8A8A8A" font-family="monospace" font-size="11">840 posts</text>
+  <text x="920" y="300" fill="#181818" font-family="sans-serif" font-weight="600" font-size="14">#CleanArchitecture</text>
+  <text x="920" y="320" fill="#8A8A8A" font-family="monospace" font-size="11">512 posts</text>
+</svg>

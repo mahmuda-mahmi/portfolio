@@ -10,6 +10,8 @@ export interface ProjectItem {
   stack: string[];
   repoUrl: string;
   liveUrl?: string;
+  previewImage?: string;
+  previewVideo?: string;
   cardTone: 'paper' | 'mist' | 'lilac' | 'stone';
 }
 

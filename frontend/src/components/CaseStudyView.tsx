@@ -8,6 +8,7 @@ interface CaseStudyViewProps {
 export function CaseStudyView({ project, onBack }: CaseStudyViewProps) {
   return (
     <div className="case-shell">
+      {/* Left column: 4 equal-height mini bordered boxes */}
       <aside className="case-sidebar">
         <div className="case-meta-card">
           <span className="case-meta-tag">PROJECT</span>
@@ -18,9 +19,11 @@ export function CaseStudyView({ project, onBack }: CaseStudyViewProps) {
 
         <div className="case-meta-card">
           <span className="case-meta-tag">STACK</span>
-          <p className="mono-copy" style={{ margin: 0 }}>
-            {project.stack.join('\n')}
-          </p>
+          <div className="mono-copy" style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {project.stack.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+          </div>
         </div>
 
         <div className="case-meta-card">
@@ -31,48 +34,70 @@ export function CaseStudyView({ project, onBack }: CaseStudyViewProps) {
         </div>
 
         <a
-          href={project.repoUrl}
+          href={project.liveUrl ?? project.repoUrl}
           target="_blank"
           rel="noreferrer"
-          className="case-meta-card case-meta-card--compact button-wipe"
+          className="case-meta-card case-meta-card--link button-wipe"
         >
-          <span className="label">▶ GITHUB REPOSITORY</span>
+          <span className="label">
+            ▶ {project.liveUrl ? 'LIVE WEBSITE' : 'GITHUB REPOSITORY'}
+          </span>
         </a>
       </aside>
 
+      {/* Right column: Large top-right project media + bottom title & mini detail boxes */}
       <main className="case-main">
-        <div className="case-topbar">
-          <button type="button" className="button-wipe label" onClick={onBack}>
+        <div className="case-media-stage">
+          <button
+            type="button"
+            className="case-back-btn button-wipe label"
+            onClick={onBack}
+          >
             <span>◀◀ BACK</span>
           </button>
+
+          {project.previewVideo ? (
+            <video
+              className="case-media-asset"
+              src={project.previewVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : project.previewImage ? (
+            <img
+              className="case-media-asset"
+              src={project.previewImage}
+              alt={`${project.title} preview`}
+            />
+          ) : (
+            <div className="case-media-fallback">
+              <span className="display" style={{ fontSize: 'var(--display-2)' }}>
+                {project.title}
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="case-title-panel">
-          <h1 className="display" style={{ fontSize: 'var(--display-1)', margin: 0 }}>
-            {project.title}
-          </h1>
+          <h1 className="display case-title-text">{project.title}</h1>
         </div>
 
-        <div className="case-reel">
-          <div className="case-panel">
-            <span className="case-meta-tag" style={{ marginBottom: 14 }}>
-              OVERVIEW
-            </span>
-            <p style={{ margin: 0, lineHeight: 1.6 }}>{project.summary}</p>
+        <div className="case-mini-grid">
+          <div className="case-mini-box">
+            <span className="case-meta-tag">OVERVIEW</span>
+            <p className="case-mini-body">{project.summary}</p>
           </div>
 
-          <div className="case-panel">
-            <span className="case-meta-tag" style={{ marginBottom: 14 }}>
-              ARCHITECTURE
-            </span>
-            <p style={{ margin: 0, lineHeight: 1.6 }}>{project.architecture}</p>
+          <div className="case-mini-box">
+            <span className="case-meta-tag">ARCHITECTURE</span>
+            <p className="case-mini-body">{project.architecture}</p>
           </div>
 
-          <div className="case-panel">
-            <span className="case-meta-tag" style={{ marginBottom: 14 }}>
-              ENGINEERING HIGHLIGHTS
-            </span>
-            <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.7 }}>
+          <div className="case-mini-box">
+            <span className="case-meta-tag">HIGHLIGHTS</span>
+            <ul className="case-mini-list">
               {project.highlights.map((item) => (
                 <li key={item}>{item}</li>
               ))}

@@ -42,6 +42,7 @@ export const FALLBACK_PORTFOLIO: PortfolioData = {
       ],
       stack: ['Laravel', 'PHP', 'Blade', 'MySQL'],
       repoUrl: 'https://github.com/mahmuda-mahmi/InfoTub',
+      previewImage: '/previews/infotub.svg',
       cardTone: 'paper',
     },
     {
@@ -61,6 +62,7 @@ export const FALLBACK_PORTFOLIO: PortfolioData = {
       ],
       stack: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS'],
       repoUrl: 'https://github.com/mahmuda-mahmi/tweety',
+      previewImage: '/previews/tweety.svg',
       cardTone: 'mist',
     },
     {
@@ -80,6 +82,7 @@ export const FALLBACK_PORTFOLIO: PortfolioData = {
       ],
       stack: ['TypeScript', 'HTML5', 'CSS3', 'JavaScript'],
       repoUrl: 'https://github.com/mahmuda-mahmi/realsolution',
+      previewImage: '/previews/realsolution.svg',
       cardTone: 'lilac',
     },
     {
@@ -99,6 +102,7 @@ export const FALLBACK_PORTFOLIO: PortfolioData = {
       ],
       stack: ['React', 'Node.js', 'Express', 'MongoDB'],
       repoUrl: 'https://github.com/mahmuda-mahmi/coffee-store-client-with-auth',
+      previewImage: '/previews/coffee-store.svg',
       cardTone: 'stone',
     },
   ],
