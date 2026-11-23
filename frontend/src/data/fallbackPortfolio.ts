@@ -20,7 +20,7 @@ export const FALLBACK_PORTFOLIO: PortfolioData = {
     },
   },
   editorial: {
-    headlinePrefix: 'TODAY, SHIPPING A WEB APP HAS NEVER BEEN',
+    headlinePrefix: 'SHIPPING A WEB APP HAS NEVER BEEN',
     headlineHighlight: 'EASIER',
     headlineSuffix: '— YET CRAFTING SOFTWARE THAT FEELS INTENTIONAL STILL TAKES ENGINEERING RIGOR.',
   },

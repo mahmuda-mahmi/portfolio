@@ -1,44 +1,48 @@
 :root {
-  /* Core Palette — inspired by retro-analog VHS + Swiss editorial minimalism */
+  /* Exact louisejongen.com palette */
   --bg: #212121;
-  --bg-elevated: #2a2a2a;
   --fg: #f9f8f6;
+  --headings: #f9f8f6;
+  --body: #f9f8f6;
+  --block: #f9f8f6;
+  --ink: #212121;
   --white: #ffffff;
-  --ink-dark: #181818;
-  --ink-muted: #8a8a8a;
   --accent: #bfa8f5;
-  --accent-dim: rgba(191, 168, 245, 0.16);
-  --border-subtle: rgba(249, 248, 246, 0.14);
-
-  /* Card Surfaces */
-  --tone-paper: #f9f8f6;
-  --tone-mist: #ebeae6;
-  --tone-lilac: #e8e0fa;
-  --tone-stone: #dfdfda;
+  --ink-muted: #6d6d6d;
+  --glitch-cyan: #5fe8e8;
+  --glitch-pink: #ff6ba8;
 
   /* Typography */
-  --display: 'Silkscreen', 'Space Mono', ui-monospace, monospace;
+  --display: 'Pixelify Sans', ui-monospace, monospace;
+  --mono: 'Atkinson Hyperlegible Mono', ui-monospace, monospace;
   --sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --mono: 'Space Mono', ui-monospace, monospace;
 
-  /* Type Scale */
-  --display-1: clamp(2.4rem, 5.5vw, 4.75rem);
-  --display-2: clamp(1.75rem, 3.8vw, 3.25rem);
-  --display-3: clamp(1.15rem, 2.2vw, 1.85rem);
-  --label-size: 0.9375rem;
+  /* Display scale */
+  --display-1: clamp(3rem, 7.2vw, 5.75rem);
+  --display-2: clamp(2.1rem, 4.6vw, 3.6rem);
+  --display-3: clamp(1.35rem, 2.8vw, 2.25rem);
+  --display-4: 1rem;
+  --label-size: 1rem;
   --body-size: 1rem;
 
-  /* Spacing & Layout */
+  /* Spacing & Geometry */
+  --radius: 12px;
+  --gap: 12px;
   --space-small: 12px;
   --space-medium: 24px;
   --space-large: 48px;
-  --space-huge: 96px;
-  --max: 1380px;
-  --radius-tile: 12px;
-  --radius-card: 16px;
+  --space-huge: 84px;
+  --max: 1440px;
 
   /* Motion */
   --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
-  --dur-hover: 0.18s;
-  --dur-wipe: 0.26s;
+  --dur-hover: 0.15s;
+  --dur-wipe: 0.24s;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --label-size: 0.75rem;
+    --body-size: 0.875rem;
+  }
 }
