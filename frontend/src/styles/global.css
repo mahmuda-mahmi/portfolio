@@ -39,7 +39,7 @@ button {
   padding: 0;
 }
 
-/* Full-viewport analog grain + CRT scanline + vignette overlay */
+/* Full-viewport crisp 1:1 animated film grain */
 .page-grain {
   position: fixed;
   inset: 0;
@@ -48,58 +48,7 @@ button {
   z-index: 90;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.12;
-}
-
-.crt-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 91;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0px,
-      rgba(0, 0, 0, 0) 2px,
-      rgba(0, 0, 0, 0.22) 3px,
-      rgba(0, 0, 0, 0.22) 4px
-    ),
-    radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.52) 100%);
-}
-
-.crt-tracking-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 3px;
-  z-index: 92;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(95, 232, 232, 0.22),
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 107, 168, 0.22),
-    transparent
-  );
-  animation: crt-sweep 6.5s linear infinite;
-}
-
-@keyframes crt-sweep {
-  0% {
-    top: -4%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    top: 104%;
-    opacity: 0;
-  }
+  opacity: 0.085;
 }
 
 /* Page shell */
