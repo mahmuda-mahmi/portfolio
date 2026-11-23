@@ -1,0 +1,44 @@
+:root {
+  /* Core Palette — inspired by retro-analog VHS + Swiss editorial minimalism */
+  --bg: #212121;
+  --bg-elevated: #2a2a2a;
+  --fg: #f9f8f6;
+  --white: #ffffff;
+  --ink-dark: #181818;
+  --ink-muted: #8a8a8a;
+  --accent: #bfa8f5;
+  --accent-dim: rgba(191, 168, 245, 0.16);
+  --border-subtle: rgba(249, 248, 246, 0.14);
+
+  /* Card Surfaces */
+  --tone-paper: #f9f8f6;
+  --tone-mist: #ebeae6;
+  --tone-lilac: #e8e0fa;
+  --tone-stone: #dfdfda;
+
+  /* Typography */
+  --display: 'Silkscreen', 'Space Mono', ui-monospace, monospace;
+  --sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'Space Mono', ui-monospace, monospace;
+
+  /* Type Scale */
+  --display-1: clamp(2.4rem, 5.5vw, 4.75rem);
+  --display-2: clamp(1.75rem, 3.8vw, 3.25rem);
+  --display-3: clamp(1.15rem, 2.2vw, 1.85rem);
+  --label-size: 0.9375rem;
+  --body-size: 1rem;
+
+  /* Spacing & Layout */
+  --space-small: 12px;
+  --space-medium: 24px;
+  --space-large: 48px;
+  --space-huge: 96px;
+  --max: 1380px;
+  --radius-tile: 12px;
+  --radius-card: 16px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --dur-hover: 0.18s;
+  --dur-wipe: 0.26s;
+}
