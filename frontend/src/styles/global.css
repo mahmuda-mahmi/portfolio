@@ -39,7 +39,7 @@ button {
   padding: 0;
 }
 
-/* Full-viewport analog grain canvas */
+/* Full-viewport analog grain + CRT scanline + vignette overlay */
 .page-grain {
   position: fixed;
   inset: 0;
@@ -48,7 +48,58 @@ button {
   z-index: 90;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.11;
+  opacity: 0.12;
+}
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 91;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.22) 3px,
+      rgba(0, 0, 0, 0.22) 4px
+    ),
+    radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.52) 100%);
+}
+
+.crt-tracking-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 92;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(95, 232, 232, 0.22),
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 107, 168, 0.22),
+    transparent
+  );
+  animation: crt-sweep 6.5s linear infinite;
+}
+
+@keyframes crt-sweep {
+  0% {
+    top: -4%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 104%;
+    opacity: 0;
+  }
 }
 
 /* Page shell */
@@ -268,6 +319,84 @@ button {
   background: var(--fg);
   color: var(--ink);
   padding: 0 8px;
+}
+
+/* Old TV Connection Lost Monitor (shown on scroll right side) */
+.hero-tv-lost {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: min(520px, 44vw);
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  border: 2px solid rgba(249, 248, 246, 0.28);
+  background: #141414;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 20px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.hero-tv-lost__bars {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.hero-tv-lost__center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-tv-lost__badge {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  background: var(--fg);
+  color: var(--ink);
+  padding: 4px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-shadow: var(--glitch-cyan) -1.5px 0 0, var(--glitch-pink) 1.5px 0 0;
+}
+
+.hero-tv-lost__sub {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--fg);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.hero-tv-lost__osd {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .hero-tv-lost {
+    display: none;
+  }
 }
 
 .hero-world {

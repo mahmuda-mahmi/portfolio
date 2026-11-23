@@ -85,7 +85,7 @@ export function App() {
 
       <header className="topbar">
         <a href="#top" className="topbar__item">
-          <span>{data.profile.name}</span>
+          <span>CH-01 // {data.profile.name}</span>
           <span aria-hidden="true">▶</span>
         </a>
         <a href="#contact" className="topbar__item">

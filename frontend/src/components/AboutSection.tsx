@@ -27,7 +27,7 @@ export function AboutSection({ handle, apiStatus }: AboutSectionProps) {
         <div className="about-badge-card">
           <div className="about-badge-thumb">
             <span className="mono-copy" style={{ fontSize: '0.72rem', color: '#bfa8f5' }}>
-              ● REC // {apiStatus.toUpperCase()}
+              ● AV-1 // {apiStatus === 'online' ? 'SIGNAL LOCKED' : 'NO SIGNAL'}
             </span>
             <span className="display" style={{ fontSize: '1.35rem' }}>
               MAHMUDA
@@ -35,7 +35,7 @@ export function AboutSection({ handle, apiStatus }: AboutSectionProps) {
               AKTER
             </span>
             <span className="mono-copy" style={{ fontSize: '0.7rem', color: '#8a8a8a' }}>
-              @{handle}
+              CH-01 // @{handle}
             </span>
           </div>
 

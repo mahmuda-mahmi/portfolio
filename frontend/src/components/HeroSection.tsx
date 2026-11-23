@@ -34,8 +34,7 @@ function VhsNoiseCanvas({ seedOffset = 0 }: { seedOffset?: number }) {
         const img = ctx.createImageData(w, h);
         const d = img.data;
         for (let i = 0; i < d.length; i += 4) {
-          const base = 35 + Math.random() * 68;
-          // Subtle VHS chroma tint (lavender/cyan/charcoal)
+          const base = 32 + Math.random() * 74;
           d[i] = base + (Math.random() > 0.92 ? 32 : 0);
           d[i + 1] = base + (Math.random() > 0.94 ? 22 : 0);
           d[i + 2] = base + (Math.random() > 0.88 ? 42 : 6);
@@ -62,6 +61,15 @@ function formatTimecode(seconds: number): string {
 
 const TOP_ROW = ['M', 'A', 'H', 'M', 'U', 'D', 'A'];
 const BOT_ROW = ['', 'A', 'K', 'T', 'E', 'R', 'DEV'];
+const SMPTE_COLORS = [
+  '#f9f8f6',
+  '#e8d44d',
+  '#5fe8e8',
+  '#6ee787',
+  '#ff6ba8',
+  '#ff5252',
+  '#bfa8f5',
+];
 
 export function HeroSection({
   tagline,
@@ -72,6 +80,7 @@ export function HeroSection({
   const [elapsed, setElapsed] = useState(1);
   const pinRef = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
+  const tvLostRef = useRef<HTMLDivElement | null>(null);
   const captionsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -93,65 +102,49 @@ export function HeroSection({
           scrollTrigger: {
             trigger: pinEl,
             start: 'top top',
-            end: '+=1100',
-            scrub: 0.8,
+            end: '+=1000',
+            scrub: 0.75,
             pin: true,
             anticipatePin: 1,
           },
         });
 
-        // Fade out hero corner captions first
         if (captionsRef.current) {
-          tl.to(captionsRef.current, { opacity: 0, y: -16, duration: 0.2 }, 0);
+          tl.to(captionsRef.current, { opacity: 0, y: -14, duration: 0.2 }, 0);
         }
 
-        // Drop left-column tiles down & out while keeping right-side pyramid
+        // Cleanly drop & fade ALL hero letter tiles (no leftover gibberish letters)
         blocks.forEach((el, i) => {
           const col = i % 7;
           const row = Math.floor(i / 7);
-          if (col <= 2) {
-            tl.to(
-              el,
-              {
-                y: 520 + row * 60 + col * 30,
-                x: -60 - col * 20,
-                rotation: (col - 2) * 14,
-                opacity: 0,
-                duration: 0.65,
-                ease: 'power2.in',
-              },
-              col * 0.04,
-            );
-          } else if (row === 0 && col < 5) {
-            tl.to(
-              el,
-              {
-                y: 230,
-                rotation: (col - 3) * 6,
-                opacity: 0,
-                duration: 0.65,
-              },
-              0.12,
-            );
-          } else {
-            // Subtle settle on right-side pyramid tiles
-            tl.to(
-              el,
-              {
-                y: row === 0 ? 110 : row === 1 ? 55 : 0,
-                duration: 0.65,
-              },
-              0.1,
-            );
-          }
+          tl.to(
+            el,
+            {
+              y: 420 + row * 50,
+              rotation: (col - 3) * 6,
+              opacity: 0,
+              duration: 0.45,
+              ease: 'power2.in',
+            },
+            col * 0.025 + row * 0.03,
+          );
         });
 
-        // Reveal editorial statement on the left after left tiles clear
+        // Reveal left editorial statement & right Old TV "CONNECTION LOST" monitor
         if (overlayRef.current) {
           tl.fromTo(
             overlayRef.current,
-            { opacity: 0, y: 28 },
-            { opacity: 1, y: 0, duration: 0.42, ease: 'power2.out' },
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+            0.38,
+          );
+        }
+
+        if (tvLostRef.current) {
+          tl.fromTo(
+            tvLostRef.current,
+            { opacity: 0, scale: 0.96, y: 20 },
+            { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'power2.out' },
             0.38,
           );
         }
@@ -172,6 +165,26 @@ export function HeroSection({
           </h1>
         </div>
 
+        {/* Old TV Connection Lost Monitor (replaces tiles cleanly on scroll) */}
+        <div ref={tvLostRef} className="hero-tv-lost" aria-hidden="true">
+          <VhsNoiseCanvas seedOffset={99} />
+          <div className="hero-tv-lost__bars">
+            {SMPTE_COLORS.map((hex) => (
+              <div key={hex} style={{ backgroundColor: hex }} />
+            ))}
+          </div>
+
+          <div className="hero-tv-lost__center">
+            <span className="hero-tv-lost__badge">CONNECTION LOST</span>
+            <span className="hero-tv-lost__sub">NO SIGNAL // TUNING CH-03</span>
+          </div>
+
+          <div className="hero-tv-lost__osd">
+            <span>● AV-1</span>
+            <span>{formatTimecode(elapsed)}</span>
+          </div>
+        </div>
+
         <div className="hero-world">
           {/* Row 0: M A H M U D A */}
           {TOP_ROW.map((char, idx) => (
@@ -190,6 +203,14 @@ export function HeroSection({
             >
               <VhsNoiseCanvas seedOffset={30 + idx * 11} />
               {idx === 0 && <span className="hero-block__osd hero-block__osd--bl">SP</span>}
+              {idx === 3 && (
+                <span
+                  className="hero-block__osd"
+                  style={{ fontSize: '0.78rem', color: '#bfa8f5' }}
+                >
+                  CH-03 // NO SIGNAL
+                </span>
+              )}
             </div>
           ))}
 

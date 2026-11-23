@@ -25,5 +25,11 @@ export function PageGrain() {
     ctx.putImageData(imageData, 0, 0);
   }, []);
 
-  return <canvas ref={canvasRef} className="page-grain" aria-hidden="true" />;
+  return (
+    <>
+      <canvas ref={canvasRef} className="page-grain" aria-hidden="true" />
+      <div className="crt-overlay" aria-hidden="true" />
+      <div className="crt-tracking-bar" aria-hidden="true" />
+    </>
+  );
 }
