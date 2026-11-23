@@ -536,17 +536,22 @@ button {
 /* About Section */
 .about-section {
   position: relative;
-  padding: 120px 0 var(--space-huge);
+  padding: 96px 0 var(--space-huge);
 }
 
 .about-badge-sticky {
+  position: sticky;
+  top: 58px;
+  z-index: 20;
   display: flex;
   justify-content: flex-end;
-  margin-bottom: var(--space-large);
+  margin-bottom: var(--space-medium);
+  pointer-events: none;
 }
 
 .about-badge-card {
   width: 210px;
+  pointer-events: auto;
 }
 
 .about-badge-thumb {
