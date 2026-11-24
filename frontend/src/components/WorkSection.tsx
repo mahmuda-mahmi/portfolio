@@ -10,6 +10,21 @@ interface WorkSectionProps {
 export function WorkSection({ projects, onSelectProject }: WorkSectionProps) {
   return (
     <section id="work" className="work-section" aria-label="Selected Work">
+      {/* Shared SVG metaball goo filter for Telemyr-style liquid ink bridges */}
+      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+        <defs>
+          <filter id="telemyr-goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"
+              result="goo"
+            />
+          </filter>
+        </defs>
+      </svg>
+
       <h2 className="work-heading">
         <span>SELECTED</span>
         <GlitchWord text="WORK" />

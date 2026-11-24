@@ -627,10 +627,26 @@ button {
   transition: transform 0.2s var(--ease);
 }
 
+.wg-art__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .wg-art__canvas {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.wg-art__canvas--goo {
+  filter: url(#telemyr-goo);
+}
+
+.wg-art__canvas--crisp {
+  pointer-events: none;
 }
 
 .wg-row:hover .wg-art {
