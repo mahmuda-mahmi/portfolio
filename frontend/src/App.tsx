@@ -8,6 +8,7 @@ import { PageGrain } from './components/PageGrain';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { WorkSection } from './components/WorkSection';
+import { ArchitectureFlowSection } from './components/ArchitectureFlowSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ContactSection } from './components/ContactSection';
 import { CaseStudyView } from './components/CaseStudyView';
@@ -111,6 +112,8 @@ export function App() {
             window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
           }}
         />
+
+        <ArchitectureFlowSection />
 
         <ServicesSection capabilities={data.capabilities} />
 

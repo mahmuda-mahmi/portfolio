@@ -689,6 +689,128 @@ button {
   }
 }
 
+/* Architecture Flow Section (Telemyr-inspired liquid data pipeline) */
+.flow-section {
+  padding: var(--space-huge) 0;
+}
+
+.flow-card {
+  background: var(--block);
+  color: var(--ink);
+  border-radius: 16px;
+  padding: clamp(24px, 4vw, 48px);
+  overflow: hidden;
+}
+
+.flow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.flow-kicker {
+  font-family: var(--display);
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  margin: 0;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.flow-sub {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.flow-canvas-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.flow-svg {
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+  display: block;
+}
+
+.flow-node {
+  cursor: pointer;
+}
+
+.flow-node__title {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  fill: #262626;
+  transition: fill 0.15s ease;
+}
+
+.flow-node__title.is-active {
+  fill: #000000;
+  font-weight: 700;
+}
+
+.flow-node__title--out {
+  font-size: 15px;
+}
+
+.flow-node__sub {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  fill: #858585;
+}
+
+.flow-hub-title {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 500;
+  fill: #111111;
+}
+
+.flow-hub-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: #777777;
+}
+
+.flow-meta-kicker {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: #888888;
+  letter-spacing: 0.06em;
+}
+
+.flow-meta-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 500;
+  fill: #181818;
+}
+
+.flow-meta-sub {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  fill: #858585;
+}
+
+.flow-time {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: #666666;
+}
+
+.flow-time-live {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: #f9f8f6;
+}
+
 /* Services / Capabilities (Right-aligned staggered) */
 .services-section {
   padding: var(--space-huge) 0;
